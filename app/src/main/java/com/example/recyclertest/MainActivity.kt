@@ -26,34 +26,10 @@ class MainActivity : AppCompatActivity(), CharacterAdapter.CharacterAdapterListe
         val nameMods = mutableListOf<String>("Pickle", "", "Smart", "Fused", "Big Arm")
         val characterNames = mutableListOf<String>("Rick", "Morty", "Summer", "Jerry", "Beth")
         val characters = mutableListOf<Character>()
-        for (i in 1..20) {
+        for (i in 1..80) {
             characters.add(
                 Character(
-                    name = nameMods.random() + " " + characterNames.random(),
-                    age = Random.nextInt(0, 100),
-                    location = characterLocations.random(),
-                    gender = genders.random()
-                )
-            )
-            characters.add(
-                Character(
-                    name = nameMods.random() + " " + characterNames.random(),
-                    age = Random.nextInt(0, 100),
-                    location = characterLocations.random(),
-                    gender = genders.random()
-                )
-            )
-            characters.add(
-                Character(
-                    name = nameMods.random() + " " + characterNames.random(),
-                    age = Random.nextInt(0, 100),
-                    location = characterLocations.random(),
-                    gender = genders.random()
-                )
-            )
-            characters.add(
-                Character(
-                    name = nameMods.random() + " " + characterNames.random(),
+                    name = "${nameMods.random()} ${characterNames.random()}".trimStart(),
                     age = Random.nextInt(0, 100),
                     location = characterLocations.random(),
                     gender = genders.random()

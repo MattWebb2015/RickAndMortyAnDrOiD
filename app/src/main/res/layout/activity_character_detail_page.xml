@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
@@ -10,31 +11,32 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        android:text="Rick"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        tools:text="Rick" />
 
     <TextView
         android:id="@+id/character_age"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        android:text="Old"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        tools:text="Old" />
 
     <TextView
         android:id="@+id/character_location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        android:text="Earth"
-        android:textSize="30sp" />
+        android:gravity="center"
+        android:textSize="30sp"
+        tools:text="Earth" />
 
     <TextView
         android:id="@+id/character_gender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        android:text="Pickle"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        tools:text="Pickle" />
 
 </LinearLayout>
