@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">RecyclerTest</string>
+    <string name="app_name">Rick Rick Rick and Morty</string>
     <string name="name">Name: %s</string>
-    <string name="age">Age: %d</string>
+    <string name="age">Age: %s</string>
     <string name="location">Location: %s</string>
     <string name="gender">Gender: %s</string>
 </resources>

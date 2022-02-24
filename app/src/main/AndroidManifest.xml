@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RecyclerTest">
         <activity
-            android:name=".CharacterDetailPage"
+            android:name=".CharacterDetailPageFragment"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

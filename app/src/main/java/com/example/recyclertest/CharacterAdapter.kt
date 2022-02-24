@@ -6,46 +6,49 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.recyclertest.databinding.CharacterViewBinding
 
 class CharacterAdapter(
-    private val characters: List<Character>,
-    private val characterAdapterListener: CharacterAdapterListener
-) :
-    RecyclerView.Adapter<CharacterViewHolder>(),
-    CharacterViewHolder.CharacterListener {
 
-    interface CharacterAdapterListener {
-        fun onCharacterClicked(character: Character, position: Int)
+    val onRickClickListener: (character: Character, position: Int) -> Unit
+) :
+    RecyclerView.Adapter<CharacterViewHolder>() {
+
+    private lateinit var characters: List<Character>
+
+    fun addCharacters(updatedCharacters: List<Character>) {
+        characters = updatedCharacters
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterViewHolder {
         val binding =
             CharacterViewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return CharacterViewHolder(binding)
+        return CharacterViewHolder(binding) {
+            onRickClickListener(characters[it], it)
+        }
     }
 
     override fun onBindViewHolder(holderCharacter: CharacterViewHolder, position: Int) {
         with(holderCharacter) {
             with((characters[position])) {
-                binding.characterName.text = this.name
-                binding.characterAge.text = this.age.toString()
-                binding.root.setOnClickListener {
-                    this@CharacterAdapter.onCharacterClicked(absoluteAdapterPosition)
-                }
+                bindCharacter(this)
             }
         }
     }
 
     override fun getItemCount() = characters.size
-    override fun onCharacterClicked(position: Int) {
-        characterAdapterListener.onCharacterClicked(characters[position], position)
-    }
 }
 
 class CharacterViewHolder(
-    val binding: CharacterViewBinding
+    val binding: CharacterViewBinding,
+    val onCharacterClickListener: (position: Int) -> Unit
 ) :
     RecyclerView.ViewHolder(binding.root) {
-
-    interface CharacterListener {
-        fun onCharacterClicked(position: Int)
+    init {
+        binding.root.setOnClickListener {
+            onCharacterClickListener(absoluteAdapterPosition)
+        }
+    }
+    fun bindCharacter(character: Character) {
+        binding.characterName.text = character.name
+        binding.characterAge.text = character.age.toString()
     }
 }
