@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RecyclerTest">
         <activity
-            android:name=".CharacterDetailPageFragment"
+            android:name=".ui.fragments.CharacterDetailPageFragment"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

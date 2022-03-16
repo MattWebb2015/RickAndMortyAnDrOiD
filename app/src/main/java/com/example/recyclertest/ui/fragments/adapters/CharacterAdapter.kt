@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recyclertest.databinding.CharacterViewBinding
+import com.example.recyclertest.models.Character
 
 class CharacterAdapter(
 
@@ -38,7 +39,7 @@ class CharacterAdapter(
 }
 
 class CharacterViewHolder(
-    val binding: CharacterViewBinding,
+    private val binding: CharacterViewBinding,
     val onCharacterClickListener: (position: Int) -> Unit
 ) :
     RecyclerView.ViewHolder(binding.root) {

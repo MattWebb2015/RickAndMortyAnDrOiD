@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.commit
 import com.example.recyclertest.databinding.ActivityMainBinding
+import com.example.recyclertest.ui.fragments.ListFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

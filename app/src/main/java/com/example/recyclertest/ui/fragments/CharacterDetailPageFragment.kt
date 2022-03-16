@@ -1,4 +1,4 @@
-package com.example.recyclertest
+package com.example.recyclertest.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
+import com.example.recyclertest.R
 import com.example.recyclertest.databinding.FragmentCharacterDetailPageBinding
+import com.example.recyclertest.models.Character
 
 class CharacterDetailPageFragment : Fragment(R.layout.fragment_character_detail_page) {
     private lateinit var binding: FragmentCharacterDetailPageBinding
