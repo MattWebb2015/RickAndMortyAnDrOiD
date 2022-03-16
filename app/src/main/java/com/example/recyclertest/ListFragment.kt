@@ -8,8 +8,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.recyclertest.databinding.FragmentListBinding
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 import kotlin.random.Random
 
+@AndroidEntryPoint
 class ListFragment : Fragment() {
     private lateinit var binding: FragmentListBinding
     private lateinit var characterAdapter: CharacterAdapter
