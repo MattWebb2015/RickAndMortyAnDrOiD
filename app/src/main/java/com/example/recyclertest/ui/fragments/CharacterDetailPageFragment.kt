@@ -16,7 +16,7 @@ class CharacterDetailPageFragment : Fragment(R.layout.fragment_character_detail_
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentCharacterDetailPageBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
@@ -52,8 +52,8 @@ class CharacterDetailPageFragment : Fragment(R.layout.fragment_character_detail_
         fun newInstance(character: Character): CharacterDetailPageFragment {
             val clickedCharacter = Bundle()
             clickedCharacter.putString(BUNDLE_NAME, character.name)
-            clickedCharacter.putString(BUNDLE_AGE, character.age.toString())
-            clickedCharacter.putString(BUNDLE_LOCATION, character.location)
+            clickedCharacter.putString(BUNDLE_AGE, character.id.toString())
+            clickedCharacter.putString(BUNDLE_LOCATION, character.location.name)
             clickedCharacter.putString(BUNDLE_GENDER, character.gender)
 //            setFragmentResult("characterKey", clickedCharacter)
             val characterDetailPageFragment = CharacterDetailPageFragment()

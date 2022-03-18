@@ -4,42 +4,35 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.recyclertest.models.Character
+import com.example.recyclertest.repositories.CharactersRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 import kotlin.random.Random
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
-class CharacterListViewModel : ViewModel() {
+@HiltViewModel
+class CharacterListViewModel @Inject constructor(
+    private val repo: CharactersRepository
+) : ViewModel() {
+    val characterids: String = generateIdList().toString().replace(" ", "")
     private val characters = mutableListOf<Character>()
-
     private val _thing = MutableLiveData<List<Character>>()
     val thing: LiveData<List<Character>> = _thing
 
-    fun updateLive() {
-        if (characters.isEmpty()) {
-            characters.addAll(generateCharacters())
+    fun updateLive() = runBlocking {
+        launch {
+            if (characters.isEmpty()) {
+                characters.addAll(repo.getCharacters(characterids).body()!!.toSet())
+            }
+            _thing.postValue(characters)
         }
-        _thing.postValue(characters)
     }
-
-    private fun generateCharacters(): List<Character> {
-        val genders = mutableListOf<String>("Male", "Female", "Pickle", "Squanch", "01010")
-        val characterLocations = mutableListOf<String>(
-            "Earth",
-            "Citadel of Ricks",
-            "Testicle Monster Dimension",
-            "Random Dimension"
-        )
-        val nameMods = mutableListOf<String>("Pickle", "", "Smart", "Fused", "Big Arm")
-        val characterNames = mutableListOf<String>("Rick", "Morty", "Summer", "Jerry", "Beth")
-        val characters = mutableListOf<Character>()
+    private fun generateIdList(): List<Int> {
+        val listcharacterids = mutableListOf<Int>()
         for (i in 1..80) {
-            characters.add(
-                Character(
-                    name = "${nameMods.random()} ${characterNames.random()}".trimStart(),
-                    age = Random.nextInt(0, 100),
-                    location = characterLocations.random(),
-                    gender = genders.random()
-                )
-            )
+            listcharacterids.add(Random.nextInt(1, 826))
         }
-        return characters.toList()
+        return listcharacterids.toList()
     }
 }

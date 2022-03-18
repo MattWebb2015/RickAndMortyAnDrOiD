@@ -1,4 +1,4 @@
-package com.example.recyclertest
+package com.example.recyclertest.ui.fragments.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -50,6 +50,6 @@ class CharacterViewHolder(
     }
     fun bindCharacter(character: Character) {
         binding.characterName.text = character.name
-        binding.characterAge.text = character.age.toString()
+        binding.characterAge.text = character.status
     }
 }

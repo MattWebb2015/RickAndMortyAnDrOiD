@@ -8,11 +8,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.recyclertest.CharacterAdapter
-import com.example.recyclertest.ui.viewmodels.CharacterListViewModel
 import com.example.recyclertest.R
 import com.example.recyclertest.databinding.FragmentListBinding
 import com.example.recyclertest.models.Character
+import com.example.recyclertest.ui.fragments.adapters.CharacterAdapter
+import com.example.recyclertest.ui.viewmodels.CharacterListViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -25,7 +25,7 @@ class ListFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentListBinding.inflate(inflater, container, false)
         return binding.root
     }
